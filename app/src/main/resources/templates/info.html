@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Legal entities info</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        li {list-style-type: none;}
+    </style>
+</head>
+<body>
+<h1>Ваши организации</h1>
+<ul th:each="legalEntityForm : ${legalEntityForms}">
+    <li th:text = "${legalEntityForm.getFullName()}"></li>
+    <li>
+        <ul th:each="accountForm : ${legalEntityForm.getAccountForms()}">
+            <li th:text = "${accountForm.getName()} + '&nbsp; № &nbsp;' + ${accountForm.getNum()} + '&nbsp;&nbsp; Баланс: ' + ${accountForm.getBalanceAmt()}"></li>
+        </ul>
+    </li>
+</ul>
+<p><a href="/hello">Перейти на главную страницу</a></p>
+</body>
+</html>

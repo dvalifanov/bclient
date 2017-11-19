@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Приветствие</title>
+</head>
+<body>
+<h1 th:inline="text">Здравствуйте, [[${#httpServletRequest.remoteUser}]]!</h1>
+<p>Нажмите <a href="/info">сюда</a>, чтобы увидеть информацию о ваших организациях, счетах и остатках</p>
+<p>Нажмите <a href="/paymentorder">сюда</a>, чтобы создать платежное поручение.</p>
+<p>Нажмите <a href="/paymentorderinfo">сюда</a>, чтобы получить информацию о платежных поручениях.</p>
+<p>Нажмите <a href="/bank">сюда</a>, чтобы проверить работу кэша для сущности dim_bank.</p>
+<p>Нажмите <a href="/makepaymentorders">сюда</a>, чтобы запустить обработку платежных поручений.</p>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Выйти"/>
+</form>
+</body>
+</html>

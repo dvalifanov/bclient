@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payment order info</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Информация о платежных поручениях</h1>
+<form th:action="@{/paymentorderinfo}" method="post">
+    <p>Выберите временной интервал за который хотите увидеть информацию о платежных поручениях:</p>
+    <p>с <input type="date" th:value="${datefrom}" name = "datefrom"/></p>
+    <p>по <input type="date" th:value="${dateto}" name="dateto" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

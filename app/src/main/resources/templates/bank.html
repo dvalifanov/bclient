@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Legal entities info</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="' Размер кэша до выполнения запроса: ' + ${sizeBefore}"></p>
+<p>Выполнили запрос на получение наименований всех банков.</p>
+<p>Наименования:</p>
+<p th:each="bankName : ${bankNameList}" th:text="${bankName}"></p>
+<p th:text="' Размер кэша после выполнения запроса: ' + ${sizeAfter}"></p>
+<p><a href="/bank">Повторить запрос</a></p>
+<p><a href="/hello">Перейти на главную страницу</a></p>
+</body>
+</html>

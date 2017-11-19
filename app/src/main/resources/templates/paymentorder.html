@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payment order</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Создание платежного поручения</h1>
+<form action="#" th:action="@{/paymentorder}" th:object="${paymentorderform}" method="post">
+    <table width="40%" cellspacing="0" cellpadding="4">
+        <tr>
+            <td align="right" width="375">Сокращенное название отправляющей органиизации: </td>
+            <td width="100"><input type="text" th:field="*{senderLegalEntityShortName}" /></td>
+            <td width="300" th:if="${#fields.hasErrors('senderLegalEntityShortName')}" th:errors="*{senderLegalEntityShortName}">senderLegalEntityShortName Error</td>
+        </tr>
+        <tr>
+            <td align="right" width="375">Номер счета отправляющей организации: </td>
+            <td width="100"><input type="text" th:field="*{senderAccountNum}" /></td>
+            <td width="300" th:if="${#fields.hasErrors('senderAccountNum')}" th:errors="*{senderAccountNum}">senderAccountNum Error</td>
+        </tr>
+        <tr>
+            <td align="right" width="375">Сокращеннное название принимающей организации: </td>
+            <td width="100"><input type="text" th:field="*{recipientLegalEntityShortName}" /></td>
+            <td width="300" th:if="${#fields.hasErrors('recipientLegalEntityShortName')}" th:errors="*{recipientLegalEntityShortName}">recipientLegalEntityShortName Error</td>
+        </tr>
+        <tr>
+            <td align="right" width="375">Номер счета принимающей организации: </td>
+            <td width="100"><input type="text" th:field="*{recipientAccountNum}" /></td>
+            <td width="300" th:if="${#fields.hasErrors('recipientAccountNum')}" th:errors="*{recipientAccountNum}">recipientAccountNum Error</td>
+        </tr>
+        <tr>
+            <td align="right" width="375">Номер контракта: </td>
+            <td width="100"><input type="text" th:field="*{contractNum}" /></td>
+            <td width="300" th:if="${#fields.hasErrors('contractNum')}" th:errors="*{contractNum}">contractNum Error</td>
+        </tr>
+        <tr>
+            <td align="right" width="375">Сумма: </td>
+            <td width="100"><input type="text" th:field="*{amt}" /></td>
+            <td width="300" th:if="${#fields.hasErrors('amt')}" th:errors="*{amt}">amt Error</td>
+        </tr>
+        <tr>
+            <td align="right" width="375">Описание платежного поручения: </td>
+            <td width="100"><input type="text" th:field="*{paymentReason}" /></td>
+            <td width="300" th:if="${#fields.hasErrors('paymentReason')}" th:errors="*{paymentReason}">paymentReason Error</td>
+        </tr>
+        <tr>
+            <td align="right" width="375">Приоритет: </td>
+            <td width="100"><input type="text" th:field="*{paymentPriorityCode}" /></td>
+            <td width="300" th:if="${#fields.hasErrors('paymentPriorityCode')}" th:errors="*{paymentPriorityCode}">paymentPriorityCode Error</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

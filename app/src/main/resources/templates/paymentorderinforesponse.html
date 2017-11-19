@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:border-collapse="http://java.sun.com/xml/ns/persistence/orm">
+<head>
+    <title>Payment order info</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        TABLE {
+            /*width: 300px; !* Ширина таблицы *!*/
+            border-collapse: collapse; /* Убираем двойные линии между ячейками */
+        }
+        TD, TH {
+            padding: 3px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid black; /* Параметры рамки */
+        }
+        TH {
+            background: #abcae8; /* Цвет фона */
+        }
+    </style>
+</head>
+<body>
+<h1>Информация о платежных поручениях</h1>
+<div th:if="${paymentOrderForms.isEmpty()} == true">Для введеного интервала отсутствуют платежные поручения</div>
+<div th:if="${paymentOrderForms.isEmpty()} == false">
+<table>
+    <tr>
+        <th>Номер</th>
+        <th>Дата</th>
+        <th>Отправитель</th>
+        <th>Счет отправителя</th>
+        <th>Получатель</th>
+        <th>Счет получателя</th>
+        <th>Номер договора</th>
+        <th>Сумма</th>
+        <th>Описание</th>
+        <th>Код валюты</th>
+        <th>Код статуса</th>
+        <th>Причина отказа</th>
+    </tr>
+    <tr th:each="paymentOrderForm : ${paymentOrderForms}">
+        <td th:text="${paymentOrderForm.num}"></td>
+        <td th:text="${paymentOrderForm.date}"></td>
+        <td th:text="${paymentOrderForm.senderLegalEntityShortName}"></td>
+        <td th:text="${paymentOrderForm.senderAccountNum}"></td>
+        <td th:text="${paymentOrderForm.recipientLegalEntityShortName}"></td>
+        <td th:text="${paymentOrderForm.recipientAccountNum}"></td>
+        <td th:text="${paymentOrderForm.contractNum}"></td>
+        <td th:text="${paymentOrderForm.amt}"></td>
+        <td th:text="${paymentOrderForm.paymentReason}"></td>
+        <td th:text="${paymentOrderForm.currencyCode}"></td>
+        <td th:text="${paymentOrderForm.statusCode}"></td>
+        <td th:text="${paymentOrderForm.rejectReason}"></td>
+    </tr>
+</table>
+</div>
+<p><a href="/paymentorderinfo">Изменить интервал</a></p>
+<p><a href="/hello">Перейти на главную страницу</a></p>
+</body>
+</html>
